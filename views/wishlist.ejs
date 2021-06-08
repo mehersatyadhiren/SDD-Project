@@ -1,0 +1,36 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+
+<body>
+
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="product_img">
+    <% if(products.length>0){ %>
+      <% products.forEach(prod=> { %>
+        <% for (var i=0;i<wishArray.length;i++) { %>
+            <% if(prod._id==wishArray[i]){ %>
+                <a class='single' href='/products/<%= prod._id %>'>
+                    <div class="productcard">
+                        <img src=<%= prod.url %>>
+                        <br><br>
+                        <h4><b><%= prod.product %></b></h4>
+                    </div>
+                </a>
+            <% } %>
+        <% } %>
+    <% }) %>
+    <% }else{ %>
+        <p>No Products to Display</p>
+    <% } %>
+  </div>
+
+  <form action='/uploadwish' method='POST'>
+    <input type='tel' name='contact' placeholder='Ph.no'>
+    <button type='submit'>Submit</button>
+  </form>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

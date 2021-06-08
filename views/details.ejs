@@ -1,0 +1,46 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body >
+  <%- include("./partials/nav.ejs") %>
+<br><br>
+  <table >
+		<tr>
+			<td style="padding-left:30px;">
+				<img src='<%= products.url %>' alt="Product Image" width=380px; height=330px;>
+			</td>
+			<td width='450px'; style="padding-left:20%;">
+				<h2><b><%= products.product %></b></h2>
+        <h4>Brand: <%= products.brand %></h4>
+        <h4><%= products.category %></h4>
+        <h4>Modelno: <%= products.modelno %></h4>
+        <h4>Description: <%= products.description %></h4>
+        <h4><%= products.capacity %></h4>
+        <h4>Price: Rs.<%= products.price %></h4>
+        <br>
+        <form method='POST' action='/addwish'>
+          <input name='id' type='hidden' value='<%= products._id %>'>
+          <button>Add to Wishlist</button>
+        </form>
+			</td>
+		</tr>
+	</table>
+
+
+
+
+  <%- include("./partials/footer.ejs") %>
+<script>
+    function func(id)
+    {
+        var wishArray = [];
+        // localStorage.setItem('wishArray', JSON.stringify(wishArray));
+        wishArray = JSON.parse(localStorage.getItem('wishArray'));
+        console.log(id);
+        wishArray.push(id);
+        localStorage.setItem('wishArray', JSON.stringify(wishArray));
+        // JSON.parse(localStorage.getItem('wishArray'));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="/copiedadmin.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Product Entry</div>
+    <div class="content">
+      <form action="/products" method='POST'>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Brand Name</span>
+            <input list="brands" name="brand" placeholder="Enter Brand Name" required>
+            <datalist id="brands">
+                <option value="Siemens"> </option>
+                <option value=" Bosch"> </option>
+            </datalist>
+          </div>
+          <div class="input-box">
+            <span class="details">Category</span>
+            <input list="categories" name="category" placeholder="Enter Category" required>
+            <datalist id="categories">
+                <option value=" Beverage & Breakfast"> </option>
+                <option value=" Cooking & Baking"> </option>
+                <option value=" Dishwasher"> </option>
+                <option value=" Food Processor"> </option>
+                <option value=" Fridges and Freezers"> </option>
+                <option value=" Kitchen Appliances"> </option>
+                <option value=" Mixer Grinders"> </option>
+                <option value=" Washers & Dryers"> </option>
+
+            </datalist>
+          </div>
+          <div class="input-box">
+            <span class="details">Product</span>
+            <input type="text" name="product" placeholder="Enter Product" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Model Number</span>
+            <input type="text" name="modelno" placeholder="Enter Model Number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Description</span>
+            <input type="text" name="description" placeholder="Enter Description" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Price</span>
+            <input type="text" name="price" placeholder="Enter Product Price" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Capacity</span>
+            <input type="text" name="capacity" placeholder="Enter Product Capacity" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Product URL</span>
+            <input type="text" name="url" placeholder="Image URL" required>
+          </div>
+        </div>
+        
+        <div class="button">
+          <input type="submit" value="Add Entry">
+        </div>
+      </form>
+    </div>
+  </div>
+  <form action="/logout" method='POST'>
+    <button type='submit'>Logout</button>
+  </form>
+
+<!--   
+  <%- include("./partials/footer.ejs") %> -->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+
+<body>
+  
+  <%- include("./partials/nav.ejs") %>
+
+    <div class="product_img">
+      <% if(products.length>0){ %>
+        <% products.forEach(prod=> { %>
+          <a class='single' href='/productsad/<%= prod._id %>'>
+                <div class="productcard">
+                    <img src=<%= prod.url %>>
+                    <br><br>
+                    <h5><b><%= prod.product %></b></h5>
+                    <p><%= prod.brand %></p>
+                    <p><%= prod.capacity %></p>
+                    <p>Price: <%= prod.price %></p>
+                </div>
+          </a>
+          <% }) %>
+      <% }else{ %>
+          <p>No Products to Display</p>
+      <% } %>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

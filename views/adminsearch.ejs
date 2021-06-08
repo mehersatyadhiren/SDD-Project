@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action='./adminsearch' method='POST'>
+        <input type='tel' name='contact' placeholder='Contact'>
+        <button type='submit'>Search</button>
+    </form>
+    <br>
+    The Products present in wishlist of <%=contact %>:
+    <br><br>
+    <div class="product_img">
+        <% if(contact){ %>
+          <% wishes.forEach(prodid=> { %>
+                  <% products.forEach(prod => { %>
+                    <% console.log(prodid) %>
+                    <% if(prodid==prod._id) { %>
+                        <div style="border:1px solid black; border-radius:10px; padding:30px;">
+                            <h3><%= prod.product%></h3>
+                            <p><%= prod.brand %></p>
+                            <p><%= prod.category %></p>
+                            <p><%= prod.modelno %></p>
+                            <p><%= prod.description %></p>
+                            <p><%= prod.price %></p>
+                        </div>
+                        <br>
+                    <% } %>
+                    <% }) %>
+            <% }) %>
+        <% }else{ %>
+            <p>No Products to Display</p>
+        <% } %>
+      </div>
+</body>
+</html>
